@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private void SetUpNewLevel()
     {
         allGroundPieces = FindObjectsOfType<GroundPiece>();
-        Debug.Log("All Ground pieces" + allGroundPieces.Length);
+      //  Debug.Log("All Ground pieces" + allGroundPieces.Length);
     }
     private void Awake()
     {
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         SetUpNewLevel();
     }
 
-
+//Check if game is completed
     public void CheckCompleted()
     {
         bool isFinished = true;
@@ -59,12 +59,14 @@ public class GameManager : MonoBehaviour
             }
         }
 
+
         if (isFinished)
         {
             NextLevel();
         }
     }
 
+    //Switch to a new level, go back to level 1 when all level is completed
     private void NextLevel()
     {
         if (SceneManager.GetActiveScene().buildIndex == 4)

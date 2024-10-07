@@ -36,6 +36,8 @@ public class BallController : MonoBehaviour
         {
             ballRb.velocity = speed * travelDirection;
         }
+
+        // Create hit colliders and change ground color of any ground piece hit.
         Collider[] hitColliders = Physics.OverlapSphere(transform.position - (Vector3.up / 2), 0.05f);
 
         int i = 0;
@@ -49,6 +51,8 @@ public class BallController : MonoBehaviour
             }
             i++;
         }
+
+        //Stop a moving ball after collision
         if (nextCollisionPosition != Vector3.zero)
         {
             if (Vector3.Distance(transform.position, nextCollisionPosition) < 1)
@@ -62,6 +66,8 @@ public class BallController : MonoBehaviour
         if (isTravelling)
             return;
 
+
+//Swipe logic here
         if (Input.GetMouseButton(0))
         {
             swipePosCurrentFrame = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
